@@ -13,7 +13,6 @@ import java.util.Date;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest
-@ActiveProfiles("test")
 class ModuloEquipajeApplicationTests {
 	@Test
 	void pruebaSuma() {
