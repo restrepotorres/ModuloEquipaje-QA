@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     branches:
-      - main  # Cambia esto si usas otra rama principal
+      - master  # Cambia esto si usas otra rama principal
   pull_request:
 
 jobs:
