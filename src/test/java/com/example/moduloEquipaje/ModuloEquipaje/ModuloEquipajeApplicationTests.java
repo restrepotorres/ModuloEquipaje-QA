@@ -3,52 +3,64 @@ package com.example.moduloEquipaje.ModuloEquipaje;
 import com.example.moduloEquipaje.ModuloEquipaje.entity.Equipaje;
 import com.example.moduloEquipaje.ModuloEquipaje.entity.Pago;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.web.servlet.MockMvc;
-
 import java.math.BigDecimal;
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@WebMvcTest
+@SpringBootTest
 class ModuloEquipajeApplicationTests {
-	@Autowired
-	private MockMvc mockMvc;
 
 	@Test
-	public void testEjemplo() throws Exception {
-		// Lógica de prueba aquí
-		assertTrue(true); // Un simple aserto de ejemplo
+	void contextLoads() {
 	}
-//	@Test
-//	void testGettersAndSetters() {
-//		// Crea una instancia de Pago
-//		Pago pago = new Pago();
-//
-//		// Configura los valores
-//		Long idPago = 1L;
-//		Equipaje equipaje = new Equipaje();
-//		BigDecimal cargoAdicional = new BigDecimal("10.00");
-//		BigDecimal cantidadTotal = new BigDecimal("50.00");
-//		Date fechaPago = new Date();
-//
-//		// Usa los setters
-//		pago.setIdPago(idPago);
-//		pago.setEquipaje(equipaje);
-//		pago.setCargoAdicional(cargoAdicional);
-//		pago.setCantidadTotal(cantidadTotal);
-//		pago.setFechaPago(fechaPago);
-//
-//		// Verifica los valores usando los getters
-//		assertEquals(idPago, pago.getIdPago());
-//		assertEquals(equipaje, pago.getEquipaje());
-//		assertEquals(cargoAdicional, pago.getCargoAdicional());
-//		assertEquals(cantidadTotal, pago.getCantidadTotal());
-//		assertEquals(fechaPago, pago.getFechaPago());
-//	}
+
+	@Test
+	void pruebaSuma() {
+		int resultado = 2 + 3;
+		assertEquals(5, resultado, "La suma debería ser 5");
+	}
+
+	@Test
+	void testGettersAndSetters() {
+		// Crea una instancia de Pago
+		Pago pago = new Pago();
+
+		// Configura los valores
+		Long idPago = 1L;
+		Equipaje equipaje = new Equipaje();
+		BigDecimal cargoAdicional = new BigDecimal("10.00");
+		BigDecimal cantidadTotal = new BigDecimal("50.00");
+		Date fechaPago = new Date();
+
+		// Usa los setters
+		pago.setIdPago(idPago);
+		pago.setEquipaje(equipaje);
+		pago.setCargoAdicional(cargoAdicional);
+		pago.setCantidadTotal(cantidadTotal);
+		pago.setFechaPago(fechaPago);
+
+		// Verifica los valores usando los getters
+		assertEquals(idPago, pago.getIdPago());
+		assertEquals(equipaje, pago.getEquipaje());
+		assertEquals(cargoAdicional, pago.getCargoAdicional());
+		assertEquals(cantidadTotal, pago.getCantidadTotal());
+		assertEquals(fechaPago, pago.getFechaPago());
+	}
+
+	@Test
+	void testCantidadTotalNoNula() {
+		// Crear una instancia de Pago sin cantidadTotal para verificar si lanza una excepción
+		Pago pago = new Pago();
+		Exception exception = assertThrows(NullPointerException.class, () -> {
+			pago.setCantidadTotal(null);
+		});
+
+		String expectedMessage = "cantidadTotal cannot be null";
+		String actualMessage = exception.getMessage();
+
+		assertTrue(actualMessage.contains(expectedMessage));
+	}
+
 }
