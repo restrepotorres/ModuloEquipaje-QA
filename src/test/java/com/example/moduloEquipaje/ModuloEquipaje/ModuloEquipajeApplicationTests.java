@@ -18,7 +18,7 @@ class ModuloEquipajeApplicationTests {
 	@Test
 	void pruebaSuma() {
 		int resultado = 2 + 3;
-		assertEquals(5, resultado, "La suma debería ser 5");
+		assertEquals(5, resultado, "La suma deberia ser 5");
 	}
 //	@Test
 //	void testGettersAndSetters() {
