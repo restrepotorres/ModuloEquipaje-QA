@@ -4,12 +4,15 @@ import com.example.moduloEquipaje.ModuloEquipaje.entity.Equipaje;
 import com.example.moduloEquipaje.ModuloEquipaje.entity.Pago;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
+@ActiveProfiles("test")
 class ModuloEquipajeApplicationTests {
 
 	@Test
@@ -38,6 +41,6 @@ class ModuloEquipajeApplicationTests {
 		assertEquals(cantidadTotal, pago.getCantidadTotal());
 		assertEquals(fechaPago, pago.getFechaPago());
 	}
-	
+
 
 }
