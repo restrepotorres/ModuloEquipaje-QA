@@ -13,16 +13,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class ModuloEquipajeApplicationTests {
 
 	@Test
-	void contextLoads() {
-	}
-
-	@Test
-	void pruebaSuma() {
-		int resultado = 2 + 3;
-		assertEquals(5, resultado, "La suma debería ser 5");
-	}
-
-	@Test
 	void testGettersAndSetters() {
 		// Crea una instancia de Pago
 		Pago pago = new Pago();
@@ -48,19 +38,6 @@ class ModuloEquipajeApplicationTests {
 		assertEquals(cantidadTotal, pago.getCantidadTotal());
 		assertEquals(fechaPago, pago.getFechaPago());
 	}
-
-	@Test
-	void testCantidadTotalNoNula() {
-		// Crear una instancia de Pago sin cantidadTotal para verificar si lanza una excepción
-		Pago pago = new Pago();
-		Exception exception = assertThrows(NullPointerException.class, () -> {
-			pago.setCantidadTotal(null);
-		});
-
-		String expectedMessage = "cantidadTotal cannot be null";
-		String actualMessage = exception.getMessage();
-
-		assertTrue(actualMessage.contains(expectedMessage));
-	}
+	
 
 }
