@@ -3,22 +3,27 @@ package com.example.moduloEquipaje.ModuloEquipaje;
 import com.example.moduloEquipaje.ModuloEquipaje.entity.Equipaje;
 import com.example.moduloEquipaje.ModuloEquipaje.entity.Pago;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.web.servlet.MockMvc;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@DataJpaTest
-@ActiveProfiles("test")
+@WebMvcTest
 class ModuloEquipajeApplicationTests {
+	@Autowired
+	private MockMvc mockMvc;
+
 	@Test
-	void pruebaSuma() {
-		int resultado = 2 + 3;
-		assertEquals(5, resultado, "La suma deberia ser 5");
+	public void testEjemplo() throws Exception {
+		// Lógica de prueba aquí
+		assertTrue(true); // Un simple aserto de ejemplo
 	}
 //	@Test
 //	void testGettersAndSetters() {
