@@ -18,6 +18,9 @@
 
 	<properties>
 		<java.version>11</java.version>
+		<sonar.organization>restrepotorres</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.projectKey>restrepotorres_ModuloEquipaje-QA</sonar.projectKey>
 	</properties>
 
 	<dependencies>
@@ -66,7 +69,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
+		<dependency>
+			<groupId>org.sonarsource.scanner.maven</groupId>
+			<artifactId>sonar-maven-plugin</artifactId>
+			<version>3.9.1.2184</version>
+		</dependency>
 		<!-- Opcional: Spring Boot GraphQL Starter (si es necesario) -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -91,6 +98,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
 
 			<!-- Maven Compiler Plugin to ensure Java 11 compatibility -->
 			<plugin>
